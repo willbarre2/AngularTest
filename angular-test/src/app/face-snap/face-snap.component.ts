@@ -1,5 +1,5 @@
 import { Component, Input, OnInit} from '@angular/core';
-import { FaceSnap } from '../models/face-snap.component';
+import { FaceSnap } from '../models/face-snap.model';
 
 @Component({
   selector: 'app-face-snap',
