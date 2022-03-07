@@ -85,4 +85,5 @@ Formulaires: (ajouter FormsModule ds app.module)
     Envoyez le formulaire en entier avec une référence locale à la directive  ngForm  et une méthode qui attend un argument de type  NgForm  – n'oubliez pas d'ajouter des attributs  name  à tous vos  input. Envoi au submit d'un objet avec clefs = names.
 
     formulaires réactifs:
+    test
         
