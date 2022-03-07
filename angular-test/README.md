@@ -10,18 +10,36 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+{{}} string interpolation
 
-## Running unit tests
+[] attribute binding
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+() evenements
 
-## Running end-to-end tests
+@input() injection de type personalisé (voir model et injection ds face-snap.componeent)
+On lie ensuite une valeur à cette propriété depuis le component parent avec l'attribute binding, c'est-à-dire le nom de la propriété entre crochets  []  en passant la valeur entre les guillemets ; ex. : [faceSnap]="mySnap"
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+? propriétés optionelles (location ds model)
 
-## Further help
+*ngif directive conditionelle
+*ngfor="let element of array" directive boucle
+[ngStyle] directive ajout de style en ligne (dynamique)
+[ngClass] ajout de classe
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+| uppercase lowercas titlecase  pipe pour modifier texte
+date currency voir face-snap.component et single-face
+
+
+@Injectable() inject un service (store) voir face-snap.service
+private userService: UserService  pour l'ajouter au component (ds arguments constructor)
+
+fileType: 'image' | 'video' literal type pour obliger un type définis (voir snapFaceSnapsById ds face-snap.service)
+
+{ path: 'myPath', component: MyComponent } pour ajouter route ds app.routing.module
+<router-outlet> là où on veut afficher les routes
+<a routerLink=""> pour lier à route
+routerLinkActive="classeName" pour mettre une classe quand active
+[routerLinkActiveOptions]="{ exact: true }" Ignorez l'activation des routes enfants avec
+this.router.navigateByUrl('/') pour naviger sur route en programmatique (ds fichiers TS)
+const Id = +this.route.snapshot.params['id'] pour récupéré param de l'URL (+ reconvertis en number).
