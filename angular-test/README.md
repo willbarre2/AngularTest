@@ -84,6 +84,31 @@ Formulaires: (ajouter FormsModule ds app.module)
     (ngSubmit) lie méthode d'envoi de formualaire au button de type submit
     Envoyez le formulaire en entier avec une référence locale à la directive  ngForm  et une méthode qui attend un argument de type  NgForm  – n'oubliez pas d'ajouter des attributs  name  à tous vos  input. Envoi au submit d'un objet avec clefs = names.
 
-    formulaires réactifs:
-    test
+    formulaires réactifs: (ajouter ReactiveFormsModule aux imports d'AppModule)
+
+        -Utilisez FormBuilder pour générer un objet de type FormGroup (voir new-face-snap.component)
+        -Liez le  form  du template au FormGroup avec  [formGroup], et les  input du formulaire aux contrôles du FormGroup avec  formControlName ;
+        -Observez les changements de valeur du formulaire avec son Observable.valueChanges
+        -Validators.required  rend un champ du formulaire requis.
+        -Validators.pattern  vérifie que le contenu d'un champ correspond à une expression régulière.
+
+
+HttpClient (ajouter HttpClientModule aux imports d'AppModule et HttpClient ds face-snaps.service)
+
+    Les requêtes HTTP en Angular sont des Observables qui :
+        émettent une fois et complètent lors d'une réponse positive ;
+        émettent une erreur (et sont donc détruits) lors d'une erreur serveur.
+
+    Les Observables générés par HttpClient envoient leur requête uniquement lorsqu'on souscrit à ces Observables ;
+
+    Souscrire à l'Observable HTTP avec le pipe  async  permet d'afficher facilement les données retournées par un serveur
+
+    Les méthodes  put()  et  post()  de HttpClient prennent l'URL de la requête comme premier argument, et le corps à envoyer comme deuxième argument ;
+
+    Vous créez une requête composée lorsque la réponse d'une requête est utilisée pour en créer une autre ;
+
+    Attention à l'asynchrone !(voir new-face onSubmitForm ) Si une action doit être effectuée après une requête, utilisez des opérateurs comme  tap()  dans le  pipe  de la requête 
+    Quand une méthode de service génère une requête, le best practice est de retourner l'Observable et d'y souscrire depuis le component.
+
+
         

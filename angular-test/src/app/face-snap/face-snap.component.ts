@@ -20,16 +20,16 @@ export class FaceSnapComponent implements OnInit  {
     this.snapButtonText = "Oh Snap!";
   }
 
-  onSnap(){
-    if (this.snapButtonText === "Oh Snap!") {
-      this.faceSnapsService.snapFaceSnapsById(this.faceSnap.id, 'snap');
-      this.snapButtonText = "Oops, unSnap!";
-    } else {
-      this.faceSnapsService.snapFaceSnapsById(this.faceSnap.id, 'unsnap');
-      this.snapButtonText = "Oh Snap!";
-    }
+  // onSnap(){
+  //   if (this.snapButtonText === "Oh Snap!") {
+  //     this.faceSnapsService.snapFaceSnapsById(this.faceSnap.id, 'snap');
+  //     this.snapButtonText = "Oops, unSnap!";
+  //   } else {
+  //     this.faceSnapsService.snapFaceSnapsById(this.faceSnap.id, 'unsnap');
+  //     this.snapButtonText = "Oh Snap!";
+  //   }
     
-  }
+  // }
 
   onViewFaceSnap(snapId: number){
     this.router.navigateByUrl('facesnaps/' + snapId);

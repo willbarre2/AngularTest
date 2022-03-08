@@ -1,4 +1,4 @@
-<div class="face-snap-card" [ngClass]="{ snapped: snapButtonText !== 'Oh Snap!' }">
+<!-- <div class="face-snap-card" [ngClass]="{ snapped: snapButtonText !== 'Oh Snap!' }">
     <h2>{{ faceSnap.title | titlecase }}</h2>
     <a routerLink="/facesnaps">Back</a>
     <p>Mise en ligne le : {{ faceSnap.createdDate | date: 'EEEE d MMMM yyyy, à HH:mm' | titlecase }}</p>
@@ -7,6 +7,19 @@
     <p *ngIf="faceSnap.location">Photo prise à {{ faceSnap.location }}</p>
     <p>
         <button (click)="onSnap()">{{snapButtonText}}</button>
+        <span [ngStyle]="{ color : 'rgb(0,' + faceSnap.snaps*10 + ', 0)'}" >Snaps: {{ faceSnap.snaps }}</span>
+    </p>
+</div> -->
+
+<div class="face-snap-card" *ngIf="faceSnap$ | async as faceSnap" [ngClass]="{ snapped: snapButtonText !== 'Oh Snap!' }">
+    <h2>{{ faceSnap.title | titlecase }}</h2>
+    <a routerLink="/facesnaps">Back</a>
+    <p>Mise en ligne le : {{ faceSnap.createdDate | date: 'EEEE d MMMM yyyy, à HH:mm' | titlecase }}</p>
+    <img [src]="faceSnap.imageURL" [alt]="faceSnap.title">
+    <p>{{ faceSnap.description }}</p>
+    <p *ngIf="faceSnap.location">Photo prise à {{ faceSnap.location }}</p>
+    <p>
+        <button (click)="onSnap(faceSnap.id)">{{snapButtonText}}</button>
         <span [ngStyle]="{ color : 'rgb(0,' + faceSnap.snaps*10 + ', 0)'}" >Snaps: {{ faceSnap.snaps }}</span>
     </p>
 </div>
