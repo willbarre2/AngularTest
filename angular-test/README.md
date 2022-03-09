@@ -110,5 +110,29 @@ HttpClient (ajouter HttpClientModule aux imports d'AppModule et HttpClient ds fa
     Attention à l'asynchrone !(voir new-face onSubmitForm ) Si une action doit être effectuée après une requête, utilisez des opérateurs comme  tap()  dans le  pipe  de la requête 
     Quand une méthode de service génère une requête, le best practice est de retourner l'Observable et d'y souscrire depuis le component.
 
+    intercepteur:
+
+        Un intercepteur HTTP intercepte toutes les requêtes HTTP envoyées par votre application pour effectuer des tâches requises, comme l'ajout d'un header d'autorisation.
+
+        Un intercepteur Angular est une classe  @Injectable  qui implémente l'interface HttpInterceptor.
+
+        La méthode  intercept()  clone la requête reçue en ajoutant les modifications requises au clone.
+
+        intercept()  passe ensuite la nouvelle requête à  next.handle()  pour lui permettre de continuer son chemin.
+
+Modules
+
+    Il y a trois types principaux de modules :
+
+        feature modules – regroupent les éléments d'un feature de l'application ;
+
+        core modules – regroupent les éléments qui sont importés une seule fois dans l'application ;
+
+        shared modules – regroupent les éléments qui sont importés à plusieurs endroits de l'application.
+
+    Un module doit importer tout ce dont il a besoin pour générer ses enfants. Par exemple, si un component qu'il déclare contient un formulaire réactif, il devra importer ReactiveFormsModule ;
+
+    Si un component déclaré par un module enfant est utilisé dans un module parent, le module enfant doit exporter ce component.
+
 
         
