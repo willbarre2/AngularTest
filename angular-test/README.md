@@ -135,4 +135,20 @@ Modules
     Si un component déclaré par un module enfant est utilisé dans un module parent, le module enfant doit exporter ce component.
 
 
+Lazy loading
+
+    Le lazy loading génère un fichier JS séparé, pour un module qui n'est chargé que si l'utilisateur visite la route correspondante ;
+    Pour implémenter le lazy loading, le module en question doit s'occuper de tout son routing (attention à l'ordre des routes pour ne pas avoir de conflicts avec /:id) ;
+    Le routing est ensuite délégué par le routeur principal avec une syntaxe particulière:
+    { path: 'module-route', loadChildren: () => import('path/to/module').then(m => m.NameOfModule) }
+
+
+Guards
+
+    Un guard est un outil de routing qui empêche des utilisateurs non autorisés d'accéder aux routes protégées de l'application ;
+    Un guard est une classe  @Injectable  qui implémente l'interface CanActivate ;
+    La méthode  canActivate()  retourne  true  pour laisser continuer la navigation, et  false  pour l'empêcher ;
+    On passe ensuite le guard à la configuration de la route dans le tableau canActivate
+
+
         
